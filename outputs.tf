@@ -1,3 +1,7 @@
+output "nginx_certificates_id" {
+  description = "Map of id values across all nginx_certificates, keyed the same as var.nginx_certificates"
+  value       = { for k, v in azurerm_nginx_certificate.nginx_certificates : k => v.id }
+}
 output "nginx_certificates_certificate_virtual_path" {
   description = "Map of certificate_virtual_path values across all nginx_certificates, keyed the same as var.nginx_certificates"
   value       = { for k, v in azurerm_nginx_certificate.nginx_certificates : k => v.certificate_virtual_path }
